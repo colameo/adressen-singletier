@@ -1,0 +1,29 @@
+# Makes a GitHub release when you push a tag like v1.0.0: it runs the tests and publishes the release with generated notes
+# and the ZIP file of the site (`npm run package`).
+# Written once by `pisa init` because the architecture description has `pipeline { release github }`; change it as you like,
+# `pisa init --force` leaves it alone.
+#   git tag v1.0.0 && git push origin v1.0.0
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install
+      - run: npm test
+      - run: npm run package
+      - run: gh release create "$GITHUB_REF_NAME" --generate-notes dist/adressen-singletier.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+

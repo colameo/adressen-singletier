@@ -1,0 +1,7 @@
+{
+  "target": "alpine-json",
+  "groupId": "com.example",
+  "artifactId": "adressen-singletier",
+  "basePackage": "com.example.adressensingletier",
+  "javaVersion": "25"
+}

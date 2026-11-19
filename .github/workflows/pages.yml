@@ -1,0 +1,45 @@
+# Publishes the site on GitHub Pages when you push a tag like v1.0.0, or when you start it by hand (Actions, Pages, Run workflow).
+# It runs the tests, then hands the folder public/ to the official GitHub Pages actions: the site is static files and needs no build.
+# Written once by `pisa init` because the architecture description has `pipeline { deploy pages }`; change it as you like,
+# `pisa init --force` leaves it alone.
+# Once per repository, before the first tag, in this order (the first one creates the environment github-pages, the second lets a tag deploy to it):
+#   gh api -X POST 'repos/{owner}/{repo}/pages' -f build_type=workflow
+#   gh api -X POST 'repos/{owner}/{repo}/environments/github-pages/deployment-branch-policies' -f name='v*' -f type=tag
+# (or in the browser: Settings, Pages, Source: GitHub Actions; Settings, Environments, github-pages, add the tag rule v*). The site is then at https://<owner>.github.io/<repository>/ ;
+# the pages use only relative links, so the folder below the repository name does no harm.
+#   git tag v1.0.0 && git push origin v1.0.0
+name: Pages
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm test
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4

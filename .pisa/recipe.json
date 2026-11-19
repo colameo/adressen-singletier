@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "steps": [
+    {
+      "n": 1,
+      "command": "init",
+      "argv": [
+        "init",
+        "--target",
+        "alpine-json",
+        "--out",
+        ".",
+        "--group",
+        "com.example",
+        "--artifact",
+        "adressen-singletier",
+        "--package",
+        "com.example.adressensingletier",
+        "--java",
+        "25",
+        "--adl",
+        "spec/base/architecture.adl"
+      ],
+      "pisa": "pisa 0.16.0 (development run, no build timestamp)",
+      "inputs": [
+        {
+          "path": "spec/base/architecture.adl",
+          "sha256": "37eb9dd3b9d1c07ed5211411a6f052b6ae7fc80233f0aa867e402ec513dd3769"
+        }
+      ],
+      "templates": [],
+      "outputs": [
+        {
+          "path": ".gitignore",
+          "sha256": "4a218bc2278817e5e00ca2cf0ade75570782dd20c74735524f0c2615ea9f10cf"
+        },
+        {
+          "path": ".pisa/architecture.plan.json",
+          "sha256": "168a662e329bffe493c38f745ecd15f66628c8c3006405ec34537287402e5729"
+        },
+        {
+          "path": "package.json",
+          "sha256": "68aa85069f6c053640c9c70412e56e357e22e87c4728978e6bc70d4d7e64c584"
+        },
+        {
+          "path": "playwright.config.ts",
+          "sha256": "3550a0a2422ff1cc5daa617749b671928fabd7cf8c804891962d3fb276a4fe53"
+        },
+        {
+          "path": "project.spec.json",
+          "sha256": "225172592081b192e1b16b057f1f985e261986e6c984bb1a30f62b8d23e6ce5a"
+        },
+        {
+          "path": "scripts/package.js",
+          "sha256": "52ec6a2b54be23155301ecd9e53634b374f0a36a688de7f01046c14ad5d1cba3"
+        },
+        {
+          "path": "scripts/serve.js",
+          "sha256": "c42d1d05db4cdff43374a77164f20b061fc1bf073fa9fb4c1f08a63881fd19df"
+        },
+        {
+          "path": "spec/README.md",
+          "sha256": "59aa2268024e74c9674116590e03755c91ec635d0d7f07d56a48cede98091620"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "command": "generate",
+      "argv": [
+        "generate",
+        "--target",
+        "alpine-json",
+        "--file",
+        "spec/base/adressen-singletier.dml",
+        "--out",
+        "."
+      ],
+      "pisa": "pisa 0.16.0 (development run, no build timestamp)",
+      "inputs": [
+        {
+          "path": ".pisa/architecture.plan.json",
+          "sha256": "168a662e329bffe493c38f745ecd15f66628c8c3006405ec34537287402e5729"
+        },
+        {
+          "path": "spec/base/adressen-singletier.dml",
+          "sha256": "06bc08b3ec5851c7e19b93452bb4bd1e894343b45ff434bc06e3c6fb85ac63c5"
+        },
+        {
+          "path": "spec/base/architecture.adl",
+          "sha256": "37eb9dd3b9d1c07ed5211411a6f052b6ae7fc80233f0aa867e402ec513dd3769"
+        },
+        {
+          "path": "spec/base/company.ui.md",
+          "sha256": "09cc2dd3f4b2232dcba83c08bf05218d2c59eedd3dd85f8c1a6920b8c6c8e4c9"
+        },
+        {
+          "path": "spec/base/person.ui.md",
+          "sha256": "680594b527e029d8ca2433f1eb8bd7c96ff7ba46a606e39015bc72aff041da51"
+        },
+        {
+          "path": "spec/base/use-cases.uc.md",
+          "sha256": "e269ff73bab67aad624939677d97c2ffee325eb2258a374fda27fb30e24488ca"
+        }
+      ],
+      "templates": [],
+      "outputs": [
+        {
+          "path": "public/app.css",
+          "sha256": "2babc50e68028e76ed26a28b0ac45320d04fe02358d04042e99f54007c95620c"
+        },
+        {
+          "path": "public/app.js",
+          "sha256": "5cdbf181c575f123b2747ca3bbcf265ab3a6a8802d119ff7cd7d4ea66fa93b02"
+        },
+        {
+          "path": "public/companies.html",
+          "sha256": "e72d6265742547bbf1373cf1bfbdd3b6d6e17a7e6145cc470541e8a82f699442"
+        },
+        {
+          "path": "public/index.html",
+          "sha256": "712972c5f363686d8c0312d3eacb900941eaee79ef07e2ff50d658a5fcea76a3"
+        },
+        {
+          "path": "public/persons.html",
+          "sha256": "1900e37758adaaf0401ed141f75f7060a6f01a0256852cdecba3b92dbe70579c"
+        },
+        {
+          "path": "public/sample-data.js",
+          "sha256": "0c4bf83cafad6958835940595a9b421dcbb350835410dcb43f5c8450d0416500"
+        },
+        {
+          "path": "public/schema.js",
+          "sha256": "0cf79db54a49559cb623b82ec0fc3ae603d773f78aba2bdd7f449e05c0a371df"
+        },
+        {
+          "path": "public/store.js",
+          "sha256": "c2ece2593e598633980159c0f42712687f6a8465198f2bd197452e9572624d28"
+        },
+        {
+          "path": "spec/base/domain-model.md",
+          "sha256": "94de7cbcbed218eedb629b4f290f9cdbb5971236ff91b01e18a8452f10ef7227"
+        },
+        {
+          "path": "spec/base/domain-model.puml",
+          "sha256": "5bda294ee89670327e6ee0ba490c926710b3df9bad490eb2c32f8a2deddd0f0f"
+        },
+        {
+          "path": "test/architecture.test.js",
+          "sha256": "7fdaf4a312b5183be77eb9b3d9d64adaaf9ef26dde0c97be05ff28e3e8c984a4"
+        },
+        {
+          "path": "test/ui/CompanyPage.spec.ts",
+          "sha256": "190e9412dd6715670e15a21219677b8a58e7a940031eb2669bb89fd0e1d5e1c5"
+        },
+        {
+          "path": "test/ui/PersonPage.spec.ts",
+          "sha256": "02296be022993688c9c465496e870b40c3ee10ef9a862b3c8834575650b0de0b"
+        },
+        {
+          "path": "test/ui/support.ts",
+          "sha256": "b89e9a7730c5a08856db9245e5000abc02d60f0402554c8c29a38296254a10be"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "command": "init",
+      "argv": [
+        "init",
+        "--target",
+        "alpine-json",
+        "--out",
+        ".",
+        "--group",
+        "com.example",
+        "--artifact",
+        "adressen-singletier",
+        "--package",
+        "com.example.adressensingletier",
+        "--java",
+        "25",
+        "--adl",
+        "spec/base/architecture.adl",
+        "--force"
+      ],
+      "pisa": "pisa 0.16.0 (development run, no build timestamp)",
+      "inputs": [
+        {
+          "path": "spec/base/architecture.adl",
+          "sha256": "bfe06ca8218fc8fb486e147495679d8a9c26bd50ef3656fa6f487e97566eb5d5"
+        }
+      ],
+      "templates": [],
+      "outputs": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "sha256": "9d56280e293f4898971a8d446a249184de24352abd64ae2e420bb90a728ac257"
+        },
+        {
+          "path": ".github/workflows/pages.yml",
+          "sha256": "6c1842fa84c51b08e41d9ae7a478fd84f04f04f2de079b57be961c709a218f01"
+        },
+        {
+          "path": ".github/workflows/release.yml",
+          "sha256": "d534168069384310cfad4f40ef58016b25ceb6c5ee2064ffebabfec6204e917d"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "4a218bc2278817e5e00ca2cf0ade75570782dd20c74735524f0c2615ea9f10cf"
+        },
+        {
+          "path": ".pisa/architecture.plan.json",
+          "sha256": "20d685cc854b320a9c4242543190e730413a7167b7cc10ab9b46a437b55a3162"
+        },
+        {
+          "path": "package.json",
+          "sha256": "68aa85069f6c053640c9c70412e56e357e22e87c4728978e6bc70d4d7e64c584"
+        },
+        {
+          "path": "playwright.config.ts",
+          "sha256": "3550a0a2422ff1cc5daa617749b671928fabd7cf8c804891962d3fb276a4fe53"
+        },
+        {
+          "path": "project.spec.json",
+          "sha256": "225172592081b192e1b16b057f1f985e261986e6c984bb1a30f62b8d23e6ce5a"
+        },
+        {
+          "path": "scripts/package.js",
+          "sha256": "52ec6a2b54be23155301ecd9e53634b374f0a36a688de7f01046c14ad5d1cba3"
+        },
+        {
+          "path": "scripts/serve.js",
+          "sha256": "c42d1d05db4cdff43374a77164f20b061fc1bf073fa9fb4c1f08a63881fd19df"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+architecture AdressenSingletier {
+    container web : frontend {
+        technology alpine
+        storage json
+        package zip
+    }
+    sampleData { entries 5  locale "de-CH" }
+    scm { host github }
+    pipeline {
+        ci github
+        release github
+        deploy pages
+    }
+}
